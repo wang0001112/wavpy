@@ -2,7 +2,24 @@ FROM python:2.7
 RUN apt-get update && \
       apt-get -y install sudo
 
-RUN useradd -m docker && echo "docker:docker" | chpasswd && adduser docker sudo
+RUN apt-get update \
+    && apt-get install -y build-essential \
+    && apt-get install -y wget \
+    && apt-get clean
 
-USER docker
+RUN sudo apt-get install libgsl-dev -y
+
+# # Install miniconda
+# ENV CONDA_DIR /opt/conda
+# RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh && \
+#     /bin/bash ~/miniconda.sh -b -p /opt/conda
+
+# # Put conda in path so we can use conda activate
+# ENV PATH=$CONDA_DIR/bin:$PATH
+
+# RUN useradd -m docker && echo "docker:docker" | chpasswd && adduser docker sudo
+
+# RUN conda create -n py2 python=2.7 -y
+
+USER root
 CMD /bin/bash
