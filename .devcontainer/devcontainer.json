@@ -1,0 +1,14 @@
+{
+    "name": "Python 2",
+    "build": {
+        "args": {
+            "VARIANT": "2"
+        }
+    },
+    "runArgs": [
+        "--runtime=python2"
+    ],
+    "extensions": [
+        "ms-python.python"
+    ]
+}
