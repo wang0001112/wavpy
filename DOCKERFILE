@@ -11,6 +11,8 @@ RUN sudo apt-get install libgsl-dev -y
 
 RUN sudo apt-get install swig -y
 
+RUN apt-get install libtool-bin
+
 # # Install miniconda
 # ENV CONDA_DIR /opt/conda
 # RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh && \
